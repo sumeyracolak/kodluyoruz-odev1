@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        center {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #333;
+            color: goldenrod;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        .text1 {
+            font-size: 36px;
+        }
+
+        .clock {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .text2 {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>KODLUYORUZ</h1>
+        <div class="text1">
+            Merhaba <strong id="userName"></strong>! Hoş geldin!
+        </div>
+        <div id="clockDiv" class="clock" onload="showTime()"></div>
+        <div class="text2">
+            tarihinde <strong>Kodluyoruz FrontEnd Web Development Patikası</strong>'nın JavaScript bölümü 1.
+            Ödevindesiniz
+        </div>
+    </center>
+
+    <script>
+        const getName = prompt('Adınız:');
+        document.querySelector("#userName").textContent = getName;
+        function digitalClock() {
+            let time = new Date();
+            let currentTime = `${time.getFullYear()}-${time.getMonth()}-${time.getDate()}
+                ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
+            document.querySelector("#clockDiv").textContent = currentTime;
+            var clock
+            clock = setInterval('digitalClock()', 1000);
+        }
+        digitalClock();
+
+    </script>
+</body>
+
+</html>
